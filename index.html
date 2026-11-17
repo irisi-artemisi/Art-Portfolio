@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Portfolio | Your Name</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f8f6f1;
+      color: #292821;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 7%;
+      border-bottom: 1px solid #e7e2d9;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #49463f;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      color: #a17e5c;
+    }
+
+    .hero {
+      padding: 110px 7% 100px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      color: #99836c;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(44px, 7vw, 82px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      color: #777268;
+      font-size: 15px;
+      line-height: 1.8;
+      max-width: 520px;
+      margin: auto;
+    }
+
+    .section {
+      padding: 65px 7%;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 400;
+    }
+
+    .section-heading p {
+      color: #888176;
+      font-size: 12px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .art-card {
+      cursor: pointer;
+    }
+
+    .art-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.85);
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      transition: transform .3s;
+      overflow: hidden;
+    }
+
+    .art-card:hover .art-image {
+      transform: scale(1.015);
+    }
+
+    .art-one {
+      background: linear-gradient(145deg, #b6a28d, #776c5e, #c9b9a4);
+    }
+
+    .art-two {
+      background: linear-gradient(145deg, #c5b8a1, #8c7764, #d7c9b5);
+    }
+
+    .art-three {
+      background: linear-gradient(145deg, #777b70, #b6a88f, #d4c8b5);
+    }
+
+    .art-four {
+      background: linear-gradient(145deg, #c5a28d, #916c5a, #d9c3ac);
+    }
+
+    .art-five {
+      background: linear-gradient(145deg, #a9a9a0, #686d65, #c6b9a6);
+    }
+
+    .art-six {
+      background: linear-gradient(145deg, #d0c2ad, #9b8c77, #b3a18b);
+    }
+
+    .art-info {
+      padding: 16px 0 25px;
+    }
+
+    .art-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+
+    .art-info p {
+      color: #898276;
+      font-size: 12px;
+    }
+
+    .about {
+      background: #eeebe3;
+      padding: 90px 12%;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 650px;
+      margin: 25px auto 0;
+      line-height: 2;
+      font-size: 14px;
+      color: #6e695f;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 90px 7%;
+    }
+
+    .contact p {
+      color: #777268;
+      margin: 20px 0 30px;
+      font-size: 14px;
+    }
+
+    .contact a {
+      display: inline-block;
+      padding: 14px 30px;
+      border: 1px solid #81745f;
+      color: #494238;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .contact a:hover {
+      background: #494238;
+      color: white;
+    }
+
+    footer {
+      border-top: 1px solid #e7e2d9;
+      text-align: center;
+      padding: 25px;
+      color: #918a7e;
+      font-size: 11px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav {
+        gap: 16px;
+      }
+
+      .hero {
+        padding: 75px 7%;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 10px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">YOUR NAME</div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#gallery">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="eyebrow">Artist · Creative Portfolio</div>
+    <h1>A collection of<br>my creative world.</h1>
+    <p>
+      Welcome to my portfolio. A space dedicated to my artwork,
+      creative explorations, and the things that inspire me.
+    </p>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="section-heading">
+      <h2>Selected Works</h2>
+      <p>A collection of recent artwork and projects</p>
+    </div>
+
+    <div class="gallery">
+
+      <div class="art-card">
+        <div class="art-image art-one">Artwork 01</div>
+        <div class="art-info">
+          <h3>Untitled No. 1</h3>
+          <p>Painting · 2026</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image art-two">Artwork 02</div>
+        <div class="art-info">
+          <h3>Untitled No. 2</h3>
+          <p>Mixed Media · 2026</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image art-three">Artwork 03</div>
+        <div class="art-info">
+          <h3>Untitled No. 3</h3>
+          <p>Photography · 2026</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image art-four">Artwork 04</div>
+        <div class="art-info">
+          <h3>Untitled No. 4</h3>
+          <p>Painting · 2026</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image art-five">Artwork 05</div>
+        <div class="art-info">
+          <h3>Untitled No. 5</h3>
+          <p>Drawing · 2026</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <div class="art-image art-six">Artwork 06</div>
+        <div class="art-info">
+          <h3>Untitled No. 6</h3>
+          <p>Mixed Media · 2026</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="eyebrow">A little about me</div>
+    <h2>The Artist Behind the Work</h2>
+    <p>
+      I'm an artist exploring creativity through different mediums,
+      techniques, and perspectives. This portfolio is a collection
+      of the work, ideas, and moments that represent my creative journey.
+    </p>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Let's Connect</h2>
+    <p>For questions, collaborations, or inquiries, feel free to reach out.</p>
+    <a href="mailto:your-email@example.com">CONTACT ME</a>
+  </section>
+
+  <footer>
+    © 2026 YOUR NAME · ALL RIGHTS RESERVED
+  </footer>
+
+</body>
+</html>
